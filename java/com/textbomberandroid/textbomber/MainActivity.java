@@ -13,6 +13,10 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class MainActivity extends AppCompatActivity {
     public EditText messageTextBox;
     public EditText numberTextBox;
@@ -23,11 +27,19 @@ public class MainActivity extends AppCompatActivity {
     public TextView infoBoxTextView;
     public Button sendButton;
     private TextView label;
+    private final String ADMOB_APP_ID = "ca-app-pub-9685208619166900~4703433869";
+
+    private AdView ad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MobileAds.initialize(this, ADMOB_APP_ID);
+        ad = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        ad.loadAd(adRequest);
 
         numberTextBox = (EditText)findViewById(R.id.editTextPhoneNumber);
         countTextBox = (EditText)findViewById(R.id.editTextCount);

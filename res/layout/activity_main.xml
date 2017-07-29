@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -9,15 +10,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.textbomberandroid.textbomber.MainActivity">
-
-    <Button
-        android:text="Send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/btnSend"
-        android:layout_alignParentEnd="true" />
 
     <TextView
         android:text="Message:"
@@ -49,15 +41,6 @@
         android:layout_below="@+id/textViewNumber"
         android:layout_alignParentStart="true" />
 
-    <CheckBox
-        android:text="Include Counter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:id="@+id/checkBoxIncludeCounter"
-        android:layout_below="@+id/textViewMessageContent"
-        android:layout_alignEnd="@+id/textViewCount" />
-
     <TextView
         android:text="Target Number:"
         android:layout_width="wrap_content"
@@ -72,18 +55,8 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editTextDelay"
-        android:layout_alignBaseline="@+id/textViewDelay"
-        android:layout_alignBottom="@+id/textViewDelay"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/textViewDelay" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:inputType="textMultiLine"
+        android:hint="You just got Text Bombed!"
         android:ems="10"
         android:gravity="top"
         android:id="@+id/editTextMessage"
@@ -96,49 +69,87 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editTextCount"
-        android:layout_alignBaseline="@+id/textViewCount"
-        android:layout_alignBottom="@+id/textViewCount"
-        android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/editTextDelay" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:inputType="phone"
+        android:hint="(555) 5555-555"
         android:ems="10"
         android:id="@+id/editTextPhoneNumber"
         android:layout_alignBaseline="@+id/textViewNumber"
         android:layout_alignBottom="@+id/textViewNumber"
         android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/editTextCount" />
-
-
+        android:layout_alignStart="@+id/editTextCount"/>
 
     <ScrollView
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnSend"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/checkBoxIncludeCounter"
+        android:id="@+id/outputLogLayout"
+        android:layout_alignTop="@+id/checkBoxIncludeCounter"
         android:layout_alignStart="@+id/editTextMessage"
-        android:id="@+id/outputLogLayout">
-
-        <TextView
-            android:text="Output Log:"
-            android:scrollbars="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/label"
-            android:layout_alignStart="@+id/outputLogLayout"
-            android:layout_alignParentEnd="true"
-            android:layout_above="@+id/btnSend"
-            android:layout_alignTop="@+id/checkBoxIncludeCounter" />
+        android:layout_marginStart="30dp">
 
     </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/checkBoxIncludeCounter"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/ad_id">
+    </com.google.android.gms.ads.AdView>
+
+    <Button
+        android:text="Send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSend"
+        android:layout_above="@+id/adView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Output Log:"
+        android:scrollbars="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/label"
+        android:layout_alignStart="@+id/editTextMessage"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/btnSend"
+        android:layout_below="@+id/outputLogLayout" />
+
+    <CheckBox
+        android:text="Include Counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:id="@+id/checkBoxIncludeCounter"
+        android:layout_below="@+id/editTextMessage"
+        android:layout_alignEnd="@+id/textViewCount" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="1"
+        android:ems="10"
+        android:id="@+id/editTextDelay"
+        android:layout_alignBaseline="@+id/textViewDelay"
+        android:layout_alignBottom="@+id/textViewDelay"
+        android:layout_alignParentEnd="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="250"
+        android:ems="10"
+        android:id="@+id/editTextCount"
+        android:layout_alignBaseline="@+id/textViewCount"
+        android:layout_alignBottom="@+id/textViewCount"
+        android:layout_alignParentEnd="true"/>
 
 
 </RelativeLayout>
