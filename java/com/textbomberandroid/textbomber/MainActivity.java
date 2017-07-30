@@ -41,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         ad.loadAd(adRequest);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_launcher);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         numberTextBox = (EditText)findViewById(R.id.editTextPhoneNumber);
         countTextBox = (EditText)findViewById(R.id.editTextCount);
         delayTextBox = (EditText)findViewById(R.id.editTextDelay);
