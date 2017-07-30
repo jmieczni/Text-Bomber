@@ -97,7 +97,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignStart="@+id/checkBoxIncludeCounter"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/ad_id">
+        ads:adUnitId="@string/ad_id_REAL">
     </com.google.android.gms.ads.AdView>
 
     <Button
