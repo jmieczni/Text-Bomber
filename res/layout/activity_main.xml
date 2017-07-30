@@ -19,17 +19,9 @@
         android:id="@+id/textViewMessageContent"
         android:textSize="18sp"
         android:layout_below="@+id/textViewDelay"
-        android:layout_alignStart="@+id/checkBoxIncludeCounter" />
-
-    <TextView
-        android:text="Delay (in seconds):"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
-        android:id="@+id/textViewDelay"
-        android:textSize="18sp"
-        android:layout_below="@+id/textViewCount"
-        android:layout_alignStart="@+id/textViewMessageContent" />
+        android:layout_alignStart="@+id/checkBoxIncludeCounter"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="Message Count:"
@@ -39,7 +31,9 @@
         android:id="@+id/textViewCount"
         android:textSize="18sp"
         android:layout_below="@+id/textViewNumber"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="Target Number:"
@@ -50,7 +44,10 @@
         android:textSize="18sp"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/textViewDelay"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@android:color/black" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -64,7 +61,8 @@
         android:layout_alignBottom="@+id/textViewMessageContent"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/checkBoxIncludeCounter"
-        android:layout_alignStart="@+id/editTextDelay" />
+        android:layout_alignStart="@+id/editTextDelay"
+        android:textColorLink="@android:color/holo_orange_light" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -127,7 +125,9 @@
         android:layout_marginTop="22dp"
         android:id="@+id/checkBoxIncludeCounter"
         android:layout_below="@+id/editTextMessage"
-        android:layout_alignEnd="@+id/textViewCount" />
+        android:layout_alignEnd="@+id/textViewCount"
+        android:textColor="?android:attr/colorControlNormal"
+        android:textStyle="normal|bold" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -138,7 +138,8 @@
         android:id="@+id/editTextDelay"
         android:layout_alignBaseline="@+id/textViewDelay"
         android:layout_alignBottom="@+id/textViewDelay"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textViewDelay" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -149,7 +150,20 @@
         android:id="@+id/editTextCount"
         android:layout_alignBaseline="@+id/textViewCount"
         android:layout_alignBottom="@+id/textViewCount"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/editTextDelay" />
+
+    <TextView
+        android:text="Delay (in seconds):"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:id="@+id/textViewDelay"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/editTextCount"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
